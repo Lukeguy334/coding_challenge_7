@@ -56,3 +56,16 @@ const filterHighValueTransactions = (transactions, filterFunction) => transactio
 //Test cases
 console.log(filterHighValueTransactions(transactions, amount => amount > 1000)); // Expected output: [1200, 3000, 2200]
 
+//Task 7
+function createBudgetTracker() {
+    let balance = 0;
+    return function(expense) {
+        balance -= expense;
+        return `Current balance: $${balance}`;
+    };
+}
+       
+//Test cases
+let budget = createBudgetTracker();
+console.log(budget(300)); // Expected output: "Current balance: $-300" 
+console.log(budget(200)); // Expected output: "Current balance: $-500"
